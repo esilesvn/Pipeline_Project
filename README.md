@@ -75,7 +75,7 @@ Checking for errors in case of inputs was made by testing the possibilities. "Wh
 
 ## Links
 
--[Repository](https://github.com/esilesvn/Pipeline_Project)
--[Slides](https://docs.google.com/presentation/d/1cxV6CXly19G53kUpPogYzULguAA2ONOO84Y1_7zgKxk/edit?usp=sharing)
+- [Repository](https://github.com/esilesvn/Pipeline_Project)
+- [Slides](https://docs.google.com/presentation/d/1cxV6CXly19G53kUpPogYzULguAA2ONOO84Y1_7zgKxk/edit?usp=sharing)
 
 
