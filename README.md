@@ -13,18 +13,19 @@
 ## Pipeline Description
 
 1. Data Collection & Acquisition
+
 The original dataset contains informations on 32000 apps from the Google Play App Store, such as : 
-    -Name of the App
-    -Category
-    -Rating
-    -Reviews
-    -Installs
-    -Size
-    -Price
-    -Content Rating
-    -Last Updated
-    -Minimum Version
-    -Latest Version
+  - Name of the App
+  - Category
+  - Rating
+  - Reviews
+  - Installs
+  - Size
+  - Price
+  - Content Rating
+  - Last Updated
+  - Minimum Version
+  - Latest Version
 
 The program imports the dataset from the .csv file into a pandasdataframe for a better manipulation in the following steps. 
 
@@ -45,13 +46,17 @@ This step was elaborated from the different problems encountered during the proc
 
 2 manipulations can be performed on the dataframe : 
 
-   - "Category" approach - Apps ranked based on the reviews and rates :
+- "Category" approach - Apps ranked based on the reviews and rates :
+
 The user will chose a category from the list of category available. Then, the user will chose a number corresponding to the number of ranked app he want to see. If the user chose '10', the top ten of the apps (reviews and rates) of the selected category will be returned. 
       
-   - "All" approach - Top 10 Categories based on the Installs :
+      
+ - "All" approach - Top 10 Categories based on the Installs :
+ 
 This choice will aggregate and sort the values of installs per Category to generate a Top 10 of Category based on the Installs. 
       
 4. Data Vizualisation
+
 Generate a barchart based on the results of the "All" approach described above. The graph, saved in a folder "Output" (created if doesn't exist), will contains a Top 10 of Categories based on the Installs. 
 
 ## Feedback
