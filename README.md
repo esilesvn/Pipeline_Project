@@ -8,7 +8,7 @@
 ## Content
 - [Pipeline Description](#pipeline-description)
 - [Feedback](#feedback)
-- [Links](#Links)
+- [Links](#links)
 
 ## Pipeline Description
 
@@ -32,10 +32,10 @@ The program imports the dataset from the .csv file into a pandasdataframe for a 
 2. Data Cleaning
 
 This step was elaborated from the different problems encountered during the process, turns out as : 
-  - Rename the columns with simplier names
+  - Rename the columns with simpler names
   - Manage the different types of values contained in the dataframe
   - Manage & correct the values 
-        (simplier name, uppercase, lowercain, special characters) 
+        (simpler name, uppercase, lowercain, special characters) 
   - Modify a specific row (mismatch between values and columns)
   - Remove rows with nan values in the following columns : Rating, AppName, LatVers
   - Modify the format of date
@@ -57,7 +57,7 @@ This choice will aggregate and sort the values of installs per Category to gener
       
 4. Data Vizualisation
 
-Generate a barchart based on the results of the "All" approach described above. The graph, saved in a folder "Output" (created if doesn't exist), will contains a Top 10 of Categories based on the installs, reviews or rating. 
+Generate a barchart based on the results of the "All" approach described above. The graph, saved in a folder "Output" (created if doesn't exist), will contain a Top 10 of Categories based on the installs, reviews or rating. 
 
 ## Feedback
 1. Obstacles encoutered
@@ -75,7 +75,7 @@ Checking for errors in case of inputs was made by testing the possibilities. "Wh
 
 ## Links
 
-[Repository](https://github.com/esilesvn/Pipeline_Project)
-[Slides]()
+-[Repository](https://github.com/esilesvn/Pipeline_Project)
+-[Slides](https://docs.google.com/presentation/d/1cxV6CXly19G53kUpPogYzULguAA2ONOO84Y1_7zgKxk/edit?usp=sharing)
 
 
