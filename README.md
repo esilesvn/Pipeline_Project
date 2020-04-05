@@ -51,13 +51,13 @@ This step was elaborated from the different problems encountered during the proc
 The user will chose a category from the list of category available. Then, the user will chose a number corresponding to the number of ranked app he want to see. If the user chose '10', the top ten of the apps (reviews and rates) of the selected category will be returned. 
       
       
- - "All" approach - Top 10 Categories based on the Installs :
+ - "All" approach - Top 10 Categories based on the installs, reviews or rating :
  
-This choice will aggregate and sort the values of installs per Category to generate a Top 10 of Category based on the Installs. 
+This choice will aggregate and sort the values of installs per Category to generate a Top 10 of Category based on the installs, reviews or rating. 
       
 4. Data Vizualisation
 
-Generate a barchart based on the results of the "All" approach described above. The graph, saved in a folder "Output" (created if doesn't exist), will contains a Top 10 of Categories based on the Installs. 
+Generate a barchart based on the results of the "All" approach described above. The graph, saved in a folder "Output" (created if doesn't exist), will contains a Top 10 of Categories based on the installs, reviews or rating. 
 
 ## Feedback
 1. Obstacles encoutered
@@ -75,7 +75,7 @@ Checking for errors in case of inputs was made by testing the possibilities. "Wh
 
 ## Links
 
-[Repository](https://github.com/)  
-[Data](https://github.com/)
-[Output](https://github.com/)
-[Code](https://github.com/)
+[Repository](https://github.com/esilesvn/Pipeline_Project)
+[Slides]()
+
+
