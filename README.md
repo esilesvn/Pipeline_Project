@@ -9,11 +9,10 @@
 - [Pipeline Description](#pipeline-description)
 - [Feedback](#feedback)
 - [Links](#Links)
-- 
 
 ## Pipeline Description
 
-####1. Data Collection & Acquisition
+1. Data Collection & Acquisition
 The original dataset contains informations on 32000 apps from the Google Play App Store, such as : 
     -Name of the App
     -Category
@@ -29,7 +28,7 @@ The original dataset contains informations on 32000 apps from the Google Play Ap
 
 The program imports the dataset from the .csv file into a pandasdataframe for a better manipulation in the following steps. 
 
-####2. Data Cleaning
+2. Data Cleaning
 
 This step was elaborated from the different problems encountered during the process, turns out as : 
   - Rename the columns with simplier names
@@ -42,27 +41,27 @@ This step was elaborated from the different problems encountered during the proc
 
 *In case of missing values, when enough informations were provided, the application wasn't removed from the database but corrected. In a case of lack of informations, or an essential information mssing (AppName for example), the application and its informations were removed from the database.
 
-####3. Data Manipulation
+3. Data Manipulation
 
 2 manipulations can be performed on the dataframe : 
 
-    -"Category" approach - Apps ranked based on the reviews and rates :
+   - "Category" approach - Apps ranked based on the reviews and rates :
 The user will chose a category from the list of category available. Then, the user will chose a number corresponding to the number of ranked app he want to see. If the user chose '10', the top ten of the apps (reviews and rates) of the selected category will be returned. 
       
-      -"All" approach - Top 10 Categories based on the Installs :
+   - "All" approach - Top 10 Categories based on the Installs :
 This choice will aggregate and sort the values of installs per Category to generate a Top 10 of Category based on the Installs. 
       
-####4. Data Vizualisation
+4. Data Vizualisation
 Generate a barchart based on the results of the "All" approach described above. The graph, saved in a folder "Output" (created if doesn't exist), will contains a Top 10 of Categories based on the Installs. 
 
 ## Feedback
-####1. Obstacles encoutered
+1. Obstacles encoutered
 
 The hardest part of the datacleaning would be the first step and the first decision to be made : from where do I begin ? The following problems and errors will be the clues for the design of the process. When the columns have appropriate names, when the data types has been managed, the main issue is the missing values. Some errors of mismatched values between columns (Numbers of reviews in the wrong column) can be corrected when there is enough informations. However, when there is a lack of essential informations (for example no app name), the app and its informations were removed from the dataset. The limit between "correcting" and "removing" is therefore arbitrary at this step of the work.  
 
-####2. Lessons learned
+2. Lessons learned
 
-Pandas is a really complete tool to clean and manipulate large dataset, it offers a lot of possibilities to manage and correct errors. 
+Pandas is a really complete tool to clean and manipulate large datasets, it offers a lot of possibilities to manage and correct errors. 
 
 The steps of the cleaning should be well-organised and splited, mainly when rows are removed and the shape of the dataframe shape changes. The modification of the shape should stay in mind when manipulating. 
 
@@ -72,6 +71,6 @@ Checking for errors in case of inputs was made by testing the possibilities. "Wh
 ## Links
 
 [Repository](https://github.com/)  
-[Data]()
-[Output]()
-[Code]()
+[Data](https://github.com/)
+[Output](https://github.com/)
+[Code](https://github.com/)
