@@ -46,18 +46,18 @@ This step was elaborated from the different problems encountered during the proc
 
 2 manipulations can be performed on the dataframe : 
 
-- "Category" approach - Apps ranked based on the reviews and rates :
+- "Apps" - Apps ranked based on the reviews and rates :
 
 The user will chose a category from the list of category available. Then, the user will chose a number corresponding to the number of ranked app he want to see. If the user chose '10', the top ten of the apps (reviews and rates) of the selected category will be returned. 
       
       
- - "All" approach - Top 10 Categories based on the installs, reviews or rating :
+ - "Categories"  - Top 10 Categories based on the installs, reviews or rating :
  
 This choice will aggregate and sort the values of installs per Category to generate a Top 10 of Category based on the installs, reviews or rating. 
       
 4. Data Vizualisation
 
-Generate a barchart based on the results of the "All" approach described above. The graph, saved in a folder "Output" (created if doesn't exist), will contain a Top 10 of Categories based on the installs, reviews or rating. 
+Generate a barchart based on the results of the previous manipulation described above. The graph, saved in a folder "Output" (created if doesn't exist), will contain a Top 10 of Categories based on the installs, reviews or rating or a Top Apps of the specified category (depending of the choices made). 
 
 ## Feedback
 1. Obstacles encoutered
