@@ -6,14 +6,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 #Initialization of the working directory
-os.chdir(r'') #fill with absolute path of the folder
+os.chdir(r'C:\Users\EliseIronhack\0323_2020DATAPAR\Labs\module_1\Pipelines-Project\google-playstore-apps') #fill with absolute path of the folder
 wd = os.getcwd()
 
-user_choice = str(input("Category or All? ")).lower()
+user_choice = str(input("Apps or Categories? ")).lower()
 
 #This choice is used later in the manipulation & vizualisation functions
-if user_choice == 'all' :
-    whichcolumn = str(input("Top 10 Categories based on Reviews, Rating or Installs ?")).title()
+if user_choice == 'categories' :
+    whichcolumn = str(input("Top 10 Categories based on Reviews, Rating or Installs ? ")).title()
     lst_col = ['Reviews', 'Rating', 'Installs']
     #Check if the selection is correct
     if whichcolumn not in lst_col : 
@@ -53,7 +53,7 @@ def cleaning(df):
 
     """
     
-    #Rename columns with simplier names
+    #Rename columns with simpler names
     df = df.rename(columns={'App Name' : 'AppName', "Last Updated" : "LastUpdated", "Minimum Version" : "MinVers", "Latest Version" : "LatVers"})
     
     #Modify data types and manage strings
@@ -84,6 +84,7 @@ def cleaning(df):
     
     #Remove columns
     df.drop(columns=['Content Rating'])
+
 
     #Remove rows when missing values in following columns : Rating, LatVers, AppName
     df.dropna(subset=['Rating'], inplace=True)
@@ -127,9 +128,9 @@ def manipulation(df):
     """
     
     User's choice will guide the data manipulation
-    Category : 
+    Apps: 
         Will filter the Top 10 Apps of the specified category based on reviews & rating
-    All : 
+    Categories : 
         Will return a graph of the Top 10 Category based on installs 
     
     Parameters
@@ -152,7 +153,7 @@ def manipulation(df):
     global user_choice
     global whichcolumn
     
-    if user_choice == 'category' :
+    if user_choice == 'apps' :
         
         #Will filter per Categories
         lst = df['Category'].unique().tolist()
@@ -160,7 +161,9 @@ def manipulation(df):
         print("\r\n".join(lst))
         cat = str(input('Select a category in the list above:  ')).title()
         
-        #Checks if the category selected exists in the database
+        
+    
+        #Checks if the category selected exists in the dataframe
         if cat not in lst : 
             raise ValueError("Selection does not exist")
 
@@ -178,20 +181,21 @@ def manipulation(df):
             elif rank > datapercat.shape[0] :
                 print(f"The value should be equal or inferior to {datapercat.shape[0]} !")
             else :
-                datapercat = df[df.Category == cat]
+                
                 bestrate = (datapercat.Rating >= 4) #Best Apps : we chose to filter the apps with a rating superior to 4 (on 5)
-                top_df = datapercat.sort_values('Reviews', ascending = False).loc[bestrate].head(rank) #Will sort the selection based on  the number of reviews
+                final = datapercat.sort_values('Reviews', ascending = False).loc[bestrate].head(rank) #Will sort the selection based on  the number of reviews
                 count = 0
                 print(f"Top 10 Apps of the {cat} category (based on rates & reviews):")
-                for i in top_df.AppName :
+                for i in final.AppName :
                     count += 1
                     print(count,"-", i) #Returns the [specified number] Top Apps in the category
-                
+           
+                return final
             
-    elif user_choice == "all" : 
+    elif user_choice == "categories" : 
         #Groups - 3 choices : Rating, Reviews, Installs
         
-        #Groups the Installs by Categories - Aggregation based on mean
+        #Groups the [Specified variable] by Categories - Aggregation based on mean
         grouped = df.groupby('Category')[whichcolumn].agg('mean').reset_index()
         #Sorts values and returns the 10 firsts
         final = grouped.sort_values(whichcolumn, ascending = False).head(10) #get the top 10
@@ -199,31 +203,43 @@ def manipulation(df):
         return final
 
     else :
-        print('Please, choose between "category" or "all".')
+        print('Please, choose between "apps" or "categories".')
         
 def viz(final):
     """
     
-    If user's choice is all, will produce a barchart of the Top 10 Categories of App on Google App per Installs'
-
+    If user's choice is categories, will produce a barchart of the Top 10 Categories of App on Google App per Installs'
+    If user's choice is apps, will produce a brachart of the Top Apps in the specified category'
     Parameters
     ----------
-    final : grouped and sorted values of installs per category (10 first)
+    final : grouped and sorted values
 
     Returns
     -------
-    barchart : Top 10 Categories of App on Google App by installs, reviews or rating
+    barchart : 
+        Top 10 Categories of App on Google App by installs, reviews or rating
+        Top 10 Apps in the specified category
 
     """
     global user_choice
     global whichcolumn
     
-    if user_choice == 'all' :
-        sns.set() #just to make the plot beautiful 
-        fig,ax = plt.subplots(figsize=(20,10)) #hauteur 15 / largeur 8
-        barchart = sns.barplot(data=final, x='Category', y=whichcolumn) #i precise that my data is the dataframe
+    
+    if user_choice == 'categories' :
+        sns.set() 
+        fig,ax = plt.subplots(figsize=(20,10)) 
+        barchart = sns.barplot(data=final, x='Category', y=whichcolumn) 
         plt.title(f'Top 10 Categories of App on Google App by {whichcolumn.lower()}')
     
+        return barchart
+    
+    elif user_choice == 'apps' :
+        cat = ''.join(final.Category.unique())
+        sns.set() 
+        fig,ax = plt.subplots(figsize=(25,10)) 
+        barchart = sns.barplot(data=final, x='AppName', y='Reviews') 
+        plt.title(f'Top 10 Apps on Google App for the {cat.lower()} category')
+        
         return barchart
 
 def save_viz(plot):
@@ -242,11 +258,11 @@ def save_viz(plot):
     global user_choice
     global whichcolumn
     
-    if user_choice == 'all' :
+    if user_choice == 'categories' :
         fig = plot.get_figure()
         foldername = 'output'
         
-        #Check if the path (Output Folder already exists)
+        #Checks if the path (Output Folder already exists)
         if not os.path.exists(os.path.join(wd, foldername)):  
             os.mkdir(os.path.join(wd, foldername))
         
@@ -254,6 +270,18 @@ def save_viz(plot):
         fig.savefig(output_path + f'/Top 10 Categories of App on Google App by {whichcolumn.lower()}.png')
 
 
+    elif user_choice == 'apps' :
+        fig = plot.get_figure()
+        foldername = 'output'
+        
+        #Checks if the path (Output Folder already exists)
+        if not os.path.exists(os.path.join(wd, foldername)):  
+            os.mkdir(os.path.join(wd, foldername))
+        
+        output_path = os.path.join(wd, foldername)
+        fig.savefig(output_path + f'/Top 10 Categories of App on Google App per category.png')
+        
+        
 #EXECUTION
 if __name__ == '__main__':
     data=acquisition()
