@@ -1,4 +1,4 @@
-<img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>
+<img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>  <img src="https://github.com/esilesvn/Pipeline_Project/blob/master/images/google_play_logo.jpg" alt="Google Play Logo" width="200"/>
 
 # Data Pipeline - Google Apps 
 *Elise*
