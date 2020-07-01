@@ -55,7 +55,7 @@ The user will chose a category from the list of category available. Then, the us
  
 This choice will aggregate and sort the values of installs per Category to generate a Top 10 of Category based on the installs, reviews or rating. 
       
-4. Data Vizualisation
+4. Data Visualization
 
 Generate a barchart based on the results of the previous manipulation described above. The graph, saved in a folder "Output" (created if doesn't exist), will contain a Top 10 of Categories based on the installs, reviews or rating or a Top Apps of the specified category (depending of the choices made). 
 
